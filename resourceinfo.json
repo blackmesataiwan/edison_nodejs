@@ -1,0 +1,75 @@
+{
+    "username": "1fbe8931-1a1b-40e4-831c-7d9da58256e1",
+    "myqnapcloudHost": "",
+    "clientId": "rpi_1489719889",
+    "host": [
+        "172.17.28.20"
+    ],
+    "password": "r:8d92e33b314c10ca2ea5238a3cce2e98",
+    "port": 1883,
+    "resources": [
+        {
+            "description": "",
+            "datatype": "Float",
+            "resourceid": "tmp",
+            "topic": "qiot/things/admin/rpi/tmp",
+            "resourcename": "tmp",
+            "resourcetypename": "Temperature",
+            "unit": "°C"
+        },
+        {
+            "description": "",
+            "datatype": "Float",
+            "resourceid": "hum",
+            "topic": "qiot/things/admin/rpi/hum",
+            "resourcename": "hum",
+            "resourcetypename": "Humidity",
+            "unit": null
+        },
+        {
+            "description": "",
+            "datatype": "Boolean",
+            "resourceid": "bb",
+            "topic": "qiot/things/admin/rpi/bb",
+            "resourcename": "bb",
+            "resourcetypename": "Button",
+            "unit": null
+        },
+        {
+            "description": "",
+            "datatype": "Boolean",
+            "resourceid": "tt",
+            "topic": "qiot/things/admin/rpi/tt",
+            "resourcename": "ttt",
+            "resourcetypename": "Touch",
+            "unit": null
+        },
+        {
+            "description": "",
+            "datatype": "Int",
+            "resourceid": "ss",
+            "topic": "qiot/things/admin/rpi/ss",
+            "resourcename": "ss",
+            "resourcetypename": "Sound",
+            "unit": null
+        },
+        {
+            "description": "",
+            "datatype": "Int",
+            "resourceid": "rr",
+            "topic": "qiot/things/admin/rpi/rr",
+            "resourcename": "rr",
+            "resourcetypename": "Rotary Angle",
+            "unit": "°"
+        },
+        {
+            "description": "",
+            "datatype": "Float",
+            "resourceid": "ll",
+            "topic": "qiot/things/admin/rpi/ll",
+            "resourcename": "ll",
+            "resourcetypename": "Light",
+            "unit": "lux"
+        }
+    ]
+}

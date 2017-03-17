@@ -1,20 +1,39 @@
-
+var QIoT = require('./QIoT');
 var m = require('mraa'); //require mraa
 console.log('MRAA Version: ' + m.getVersion()); //write the mraa version to the console
 
-var analogPin0 = new m.Aio(0); //setup access analog inpuput pin 0
- //read the value of the analog pin
+var Sound = new m.Aio(0);
+var Rotary = new m.Aio(1);
+var Piezo = new m.Aio(2);
+var Light = new m.Aio(3);  
 
-var myDigitalPin = new m.Gpio(6); //setup digital read on pin 6
-myDigitalPin.dir(m.DIR_IN); //set the gpio direction to input
 
-periodicActivity(); //call the periodicActivity function
+var Button = new m.Gpio(2); //setup digital read on pin 6
+Button.dir(m.DIR_IN); //set the gpio direction to input
+var Touch = new m.Gpio(3); //setup digital read on pin 6
+Touch.dir(m.DIR_IN); //set the gpio direction to input
 
-function periodicActivity() //
-{
-  var myDigitalValue =  myDigitalPin.read();
-  var analogValue = analogPin0.read();	//read the digital value of the pin
-  console.log('Gpio is ' + myDigitalValue);
-  console.log('Aio is ' + analogValue);  //write the read value out to the console
-  setTimeout(periodicActivity,1000); //call the indicated function after 1 second (1000 milliseconds)
+var Qclient = QIoT.qiotmqtt.start('./res/resourceinfo.json');
+
+
+/*** 
+	Send sensor's data to QIoT Suite Lite by Resourcetype.
+***/
+
+function sensors(){
+	
+	//QIoT.qiotmqtt.type("Temperature",DHTSensor.read()[0],Qclient);
+	//QIoT.qiotmqtt.type("Humidity",DHTSensor.read()[1],Qclient);
+	QIoT.qiotmqtt.type("Button",Button.read(),Qclient);
+	QIoT.qiotmqtt.type("Touch",Touch.read(),Qclient);
+	QIoT.qiotmqtt.type("Sound",parseInt(Sound.read()/1023*100, 10),Qclient);
+	QIoT.qiotmqtt.type("Rotary Angle",parseInt(Rotary.read()/1023*100, 10),Qclient);
+	QIoT.qiotmqtt.type("Light",Light.read(),Qclient);
+	QIoT.qiotmqtt.type("Piezo Vibration",Piezo.read(),Qclient);
+
+	setTimeout(function() {
+		console.log("wating......");
+		sensors();
+	}, 100);
 }
+sensors();
