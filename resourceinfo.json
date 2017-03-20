@@ -1,75 +1,69 @@
 {
-    "username": "1fbe8931-1a1b-40e4-831c-7d9da58256e1",
-    "myqnapcloudHost": "",
-    "clientId": "rpi_1489719889",
     "host": [
         "172.17.28.20"
     ],
-    "password": "r:8d92e33b314c10ca2ea5238a3cce2e98",
-    "port": 1883,
+    "myqnapcloudHost": "",
+    "port": 8883,
+    "clientId": "edison_1489974848",
+    "username": "a1ba8dd3-56b2-4e78-ab33-d22d2318127d",
+    "password": "r:edb0df451f7c75d61794f81c1c3eb9b1",
     "resources": [
         {
-            "description": "",
-            "datatype": "Float",
-            "resourceid": "tmp",
-            "topic": "qiot/things/admin/rpi/tmp",
-            "resourcename": "tmp",
-            "resourcetypename": "Temperature",
-            "unit": "°C"
-        },
-        {
-            "description": "",
-            "datatype": "Float",
-            "resourceid": "hum",
-            "topic": "qiot/things/admin/rpi/hum",
-            "resourcename": "hum",
-            "resourcetypename": "Humidity",
-            "unit": null
-        },
-        {
-            "description": "",
-            "datatype": "Boolean",
+            "resourcename": "BB",
             "resourceid": "bb",
-            "topic": "qiot/things/admin/rpi/bb",
-            "resourcename": "bb",
             "resourcetypename": "Button",
-            "unit": null
-        },
-        {
-            "description": "",
             "datatype": "Boolean",
+            "unit": null,
+            "description": "",
+            "topic": "qiot/things/admin/edison/bb"
+        },
+        {
+            "resourcename": "tttt",
             "resourceid": "tt",
-            "topic": "qiot/things/admin/rpi/tt",
-            "resourcename": "ttt",
             "resourcetypename": "Touch",
-            "unit": null
+            "datatype": "Boolean",
+            "unit": null,
+            "description": "",
+            "topic": "qiot/things/admin/edison/tt"
         },
         {
-            "description": "",
-            "datatype": "Int",
-            "resourceid": "ss",
-            "topic": "qiot/things/admin/rpi/ss",
             "resourcename": "ss",
+            "resourceid": "ss",
             "resourcetypename": "Sound",
-            "unit": null
-        },
-        {
-            "description": "",
             "datatype": "Int",
-            "resourceid": "rr",
-            "topic": "qiot/things/admin/rpi/rr",
-            "resourcename": "rr",
-            "resourcetypename": "Rotary Angle",
-            "unit": "°"
+            "unit": null,
+            "description": "",
+            "topic": "qiot/things/admin/edison/ss"
         },
         {
+            "resourcename": "rr",
+            "resourceid": "rr",
+            "resourcetypename": "Rotary Angle",
+            "datatype": "Int",
+            "unit": "°",
             "description": "",
-            "datatype": "Float",
-            "resourceid": "ll",
-            "topic": "qiot/things/admin/rpi/ll",
+            "topic": "qiot/things/admin/edison/rr"
+        },
+        {
+            "resourcename": "pp",
+            "resourceid": "pp",
+            "resourcetypename": "Piezo Vibration",
+            "datatype": "Boolean",
+            "unit": null,
+            "description": "",
+            "topic": "qiot/things/admin/edison/pp"
+        },
+        {
             "resourcename": "ll",
+            "resourceid": "ll",
             "resourcetypename": "Light",
-            "unit": "lux"
+            "datatype": "Float",
+            "unit": "lux",
+            "description": "",
+            "topic": "qiot/things/admin/edison/ll"
         }
-    ]
+    ],
+    "caCert": "/v1/media/ca-crt.pem",
+    "clientCert": "/v1/media/7851402017-03-20_01-54-08/7851402017-03-20_01-54-08_certificate.pem",
+    "privateCert": "/v1/media/7851402017-03-20_01-54-08/7851402017-03-20_01-54-08_privatekey.pem"
 }

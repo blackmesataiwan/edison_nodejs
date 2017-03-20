@@ -13,8 +13,21 @@ var Button = new m.Gpio(2); //setup digital read on pin 6
 Button.dir(m.DIR_IN); //set the gpio direction to input
 var Touch = new m.Gpio(4); //setup digital read on pin 6
 Touch.dir(m.DIR_IN); //set the gpio direction to input
+var LED = new m.Gpio(7); //setup digital read on pin 6
+LED.dir(m.DIR_OUT);
 
 var Qclient = QIoT.qiotmqtt.start('./res/resourceinfo.json');
+
+//Qclient.subscribe('qiot/things/admin/edison222/LED');
+QIoT.qiotmqtt.subscribeofid("LED", Qclient);
+
+Qclient.on('message', function(topic, message){
+
+	console.log(message.toString());
+	LED.write(LED.read()?0:1);
+
+});
+
 
 
 /*** 
