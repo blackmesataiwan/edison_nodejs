@@ -14,7 +14,8 @@ var Qclient = QIoT.qiotmqtt.start('./res/resourceinfo.json');
 QIoT.qiotmqtt.subscribeofid("LED", Qclient);
 
 Qclient.on('message', function(topic, message){
-
+	
+	console.log(topic);
 	console.log(message.toString());
 	LED.write(LED.read()?0:1);
 

@@ -18,13 +18,31 @@ LED.dir(m.DIR_OUT);
 
 var Qclient = QIoT.qiotmqtt.start('./res/resourceinfo.json');
 
-//Qclient.subscribe('qiot/things/admin/edison222/LED');
-QIoT.qiotmqtt.subscribeofid("LED", Qclient);
+/*** 
+	Receive data of QIoT Suite Lite.
+***/
+
+var topic_LED = QIoT.qiotmqtt.subscribeofid("LED", Qclient);
 
 Qclient.on('message', function(topic, message){
+	var data = JSON.parse(message.toString());
+	switch (topic){
+		case topic_LED:
+			if (data.value == 1) {
+				LED.write(1);
+			}
+			else{
+				LED.write(0);
+			}
+			break;
 
-	console.log(message.toString());
-	LED.write(LED.read()?0:1);
+		default:
+                
+            break;
+	}
+	console.log(topic_LED);
+	console.log(data.value);
+	//LED.write(LED.read()?0:1);
 
 });
 
