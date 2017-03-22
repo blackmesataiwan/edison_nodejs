@@ -2,11 +2,12 @@ var QIoT = require('./QIoT');
 var m = require('mraa'); //require mraa
 console.log('MRAA Version: ' + m.getVersion()); //write the mraa version to the console
 
+var Temperature = new m.Aio(0); 
 //var Sound = new m.Aio(0);
 var Rotary = new m.Aio(1);
 var Piezo = new m.Aio(2);
 var Light = new m.Aio(3);
-var Temperature = new m.Aio(0);  
+ 
 
 
 var Button = new m.Gpio(2); //setup digital read on pin 6
@@ -73,7 +74,7 @@ function sensors(){
 	//QIoT.qiotmqtt.type("Sound",parseInt(Sound.read()/1023*100, 10),Qclient);
 	QIoT.qiotmqtt.type("Rotary Angle",parseInt(Rotary.read()/1023*100, 10),Qclient);
 	QIoT.qiotmqtt.type("Light",Light.read(),Qclient);
-	QIoT.qiotmqtt.type("Piezo Vibration",Piezo.read()>100 ? 1:0,Qclient);
+	QIoT.qiotmqtt.type("Piezo Vibration",Piezo.read()>1000 ? 1:0,Qclient);
 
 	setTimeout(function() {
 		console.log("wating......");
