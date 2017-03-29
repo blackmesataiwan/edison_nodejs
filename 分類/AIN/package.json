@@ -1,0 +1,11 @@
+{
+  "name": "qiot",
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {
+      "socket.io":"latest",
+      "mqtt":"latest",
+      "q":"latest",
+      "mraa":"latest"
+  }
+}
